@@ -12,4 +12,4 @@ This RESTful API was developed to be asynchronous using FastAPI. It handles depo
 
 ## Stack
 
-- **FastAPI:** 
+- **FastAPI** 
