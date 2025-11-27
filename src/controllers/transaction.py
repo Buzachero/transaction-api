@@ -1,11 +1,12 @@
-from fastapi import APIRouter, HTTPException, Query, status
+from fastapi import APIRouter, HTTPException, Query, status, Depends
 from schemas.account import TransactionIn
 from views.account import TransactionOut
 from services.transaction import TransactionService
 from typing import Annotated
+from security import login_required
 
 
-router = APIRouter(prefix="/transactions")
+router = APIRouter(prefix="/transactions", dependencies=[Depends(login_required)])
 service = TransactionService()
 
 

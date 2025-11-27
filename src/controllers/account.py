@@ -1,11 +1,12 @@
-from fastapi import APIRouter, status, Query
+from fastapi import APIRouter, status, Query, Depends
 from schemas.account import AccountIn
 from views.account import AccountOut
 from services.account import AccountService
 from typing import Annotated
+from security import login_required
 
 
-router = APIRouter(prefix="/accounts")
+router = APIRouter(prefix="/accounts", dependencies=[Depends(login_required)])
 service = AccountService()
 
 
